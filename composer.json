@@ -3,7 +3,6 @@
   "type": "package",
   "license": "MIT",
   "description": "Better WordPress mail for Acorn projects",
-  "version": "0.9.1",
   "authors": [
     {
       "name": "Kelly Mears",

@@ -3,7 +3,7 @@
 return [
 
     'environment' => [
-
+        'extensions' => true,
     ],
 
     'converter' => [

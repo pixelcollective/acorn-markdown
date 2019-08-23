@@ -1,6 +1,6 @@
 <?php
 
-namespace TinyPixel\Acorn\CommonMark;
+namespace TinyPixel\CommonMark;
 
 use Roots\Acorn\ServiceProvider;
 use League\CommonMark\CommonMarkConverter;
@@ -20,7 +20,7 @@ class CommonMarkServiceProvider extends ServiceProvider
         $this->app->bind('commonmark.environment', function ($app) {
             $environment = Environment::createCommonMarkEnvironment();
 
-            if ($app['config']->get('markdown.environment.extras')) {
+            if ($app['config']->get('commonmark.environment.extras')) {
                 $environment->addExtension(new CommonMarkExtrasExtension());
             }
 
@@ -29,7 +29,7 @@ class CommonMarkServiceProvider extends ServiceProvider
 
         $this->app->singleton('commonmark', function ($app) {
             return new CommonMarkConverter(
-                $app['config']->get('markdown.converter'),
+                $app['config']->get('commonmark.converter'),
                 $app->make('commonmark.environment')
             );
         });
@@ -40,8 +40,8 @@ class CommonMarkServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->publishes([
-            __DIR__ . '/../config/commonmark.php' => $this->app->config_dir('commonmark.php'),
+        $this->publishes([
+            __DIR__ . '/../config/commonmark.php' => $this->app->configPath('commonmark.php'),
         ]);
     }
 }
