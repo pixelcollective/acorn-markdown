@@ -1,5 +1,5 @@
 {
-  "name": "tiny-pixel/acorn-commonmark",
+  "name": "tiny-pixel/acorn-md",
   "type": "package",
   "license": "MIT",
   "description": "Better WordPress mail for Acorn projects",
